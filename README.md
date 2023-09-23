@@ -1,7 +1,7 @@
 # 跨模态行人重识别网络改进
 
 含GUI，以及新的数据集，优化检测分支
-
+get_video 文件夹下的是8路海康威视摄像头取流并保存的代码
 # Cross-Modal-Re-ID-baseline (AGW)
 
 Pytorch Code of AGW method [1] for Cross-Modality Person Re-Identification (Visible Thermal Re-ID) on RegDB dataset [3] and SYSU-MM01 dataset [4]. 
