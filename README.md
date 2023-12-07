@@ -2,10 +2,6 @@
 
 ![image-20231207175115866](doc/image-20231207175115866.png)
 
-> Baseline：[mangye16/Cross-Modal-Re-ID-baseline](https://github.com/mangye16/Cross-Modal-Re-ID-baseline)
->
-> Hetero-center-loss：[98zyx/Hetero-center-loss-for-cross-modality-person-re-id](https://github.com/98zyx/Hetero-center-loss-for-cross-modality-person-re-id)
-
 ## 目录说明
 
 - `doc`：毕业论文存档
@@ -21,3 +17,9 @@
 - 以 `_nwpu` 结尾文件和函数的使用 NWPU-ReID 自制数据集。
 
 - 以`_sysu` 结尾文件的文件和函数使用 [SYSU-MM01](https://drive.google.com/open?id=181K9PQGnej0K5xNX9DRBDPAf3K9JosYk)开源数据集。
+
+- `a_divide_dataset.py` 用于划分数据集。
+- `b_pre_process_nwpu` 用于预处理数据集。
+
+>Baseline：[mangye16/Cross-Modal-Re-ID-baseline](https://github.com/mangye16/Cross-Modal-Re-ID-baseline)
+
