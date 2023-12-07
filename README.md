@@ -1,91 +1,23 @@
 # 跨模态行人重识别网络改进
 
-含GUI，以及新的数据集，优化检测分支
-get_video 文件夹下的是8路海康威视摄像头取流并保存的代码
+![image-20231207175115866](doc/image-20231207175115866.png)
 
-# Cross-Modal-Re-ID-baseline (AGW)
+> Baseline：[mangye16/Cross-Modal-Re-ID-baseline](https://github.com/mangye16/Cross-Modal-Re-ID-baseline)
+>
+> Hetero-center-loss：[98zyx/Hetero-center-loss-for-cross-modality-person-re-id](https://github.com/98zyx/Hetero-center-loss-for-cross-modality-person-re-id)
 
-Pytorch Code of AGW method [1] for Cross-Modality Person Re-Identification (Visible Thermal Re-ID) on RegDB dataset [3] and SYSU-MM01 dataset [4]. 
+## 目录说明
 
-We adopt the two-stream network structure introduced in [2]. ResNet50 is adopted as the backbone. The softmax loss is adopted as the baseline. 
+- `doc`：毕业论文存档
+- `get_video`：用于读取并保存 8 路海康威视摄像头录像
+- `GUI`：软件界面
+- `visualization`：用于画图，算法效果的可视化结果
+- `log`：模型运行时的 tensorboard 日志
 
-|Datasets    | Pretrained| Rank@1  | mAP |  mINP |  Model|
-| --------   | -----    | -----  |  -----  | ----- |------|
-|#RegDB      | ImageNet | ~ 70.05% | ~ 66.37%|  ~50.19% |----- |
-|#SYSU-MM01  | ImageNet | ~ 47.50%  | ~ 47.65% | ~35.30% | [GoogleDrive](https://drive.google.com/open?id=181K9PQGnej0K5xNX9DRBDPAf3K9JosYk)|
 
-*Both of these two datasets may have some fluctuation due to random spliting. The results might be better by finetuning the hyper-parameters. 
 
-### 1. Prepare the datasets.
+## 文件说明
 
-- (1) RegDB Dataset [3]: The RegDB dataset can be downloaded from this [website](http://dm.dongguk.edu/link.html) by submitting a copyright form.
+- 以 `_nwpu` 结尾文件和函数的使用 NWPU-ReID 自制数据集。
 
-    - (Named: "Dongguk Body-based Person Recognition Database (DBPerson-Recog-DB1)" on their website). 
-
-    - A private download link can be requested via sending me an email (mangye16@gmail.com). 
-  
-- (2) SYSU-MM01 Dataset [4]: The SYSU-MM01 dataset can be downloaded from this [website](http://isee.sysu.edu.cn/project/RGBIRReID.htm).
-
-   - run `python pre_process_sysu.py` to pepare the dataset, the training data will be stored in ".npy" format.
-
-### 2. Training.
-  Train a model by
-  ```bash
-python train.py --dataset sysu --lr 0.1 --method agw --gpu 1
-  ```
-
-  - `--dataset`: which dataset "sysu" or "regdb".
-
-  - `--lr`: initial learning rate.
-  
-  -  `--method`: method to run or baseline.
-  
-  - `--gpu`:  which gpu to run.
-
-You may need mannully define the data path first.
-
-**Parameters**: More parameters can be found in the script.
-
-**Sampling Strategy**: N (= bacth size) person identities are randomly sampled at each step, then randomly select four visible and four thermal image. Details can be found in Line 302-307 in `train.py`.
-
-**Training Log**: The training log will be saved in `log/" dataset_name"+ log`. Model will be saved in `save_model/`.
-
-### 3. Testing.
-
-Test a model on SYSU-MM01 or RegDB dataset by 
-  ```bash
-python test.py --mode all --resume 'model_path' --gpu 1 --dataset sysu
-  ```
-  - `--dataset`: which dataset "sysu" or "regdb".
-  
-  - `--mode`: "all" or "indoor" all search or indoor search (only for sysu dataset).
-  
-  - `--trial`: testing trial (only for RegDB dataset).
-  
-  - `--resume`: the saved model path.
-  
-  - `--gpu`:  which gpu to run.
-
-### 4. Citation
-
-Please kindly cite this paper in your publications if it helps your research:
-```
-@article{arxiv20reidsurvey,
-  title={Deep Learning for Person Re-identification: A Survey and Outlook},
-  author={Ye, Mang and Shen, Jianbing and Lin, Gaojie and Xiang, Tao and Shao, Ling and Hoi, Steven C. H.},
-  journal={arXiv preprint arXiv:2001.04193},
-  year={2020},
-}
-```
-
-###  5. References.
-
-[1] M. Ye, J. Shen, G. Lin, T. Xiang, L. Shao, and S. C., Hoi. 	Deep learning for person re-identification: A survey and outlook. IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2020.
-
-[2] M. Ye, X. Lan, Z. Wang, and P. C. Yuen. Bi-directional Center-Constrained Top-Ranking for Visible Thermal Person Re-Identification. IEEE Transactions on Information Forensics and Security (TIFS), 2019.
-
-[3] D. T. Nguyen, H. G. Hong, K. W. Kim, and K. R. Park. Person recognition system based on a combination of body images from visible light and thermal cameras. Sensors, 17(3):605, 2017.
-
-[4] A. Wu, W.-s. Zheng, H.-X. Yu, S. Gong, and J. Lai. Rgb-infrared crossmodality person re-identification. In IEEE International Conference on Computer Vision (ICCV), pages 5380–5389, 2017.
-
-Contact: mangye16@gmail.com
+- 以`_sysu` 结尾文件的文件和函数使用 [SYSU-MM01](https://drive.google.com/open?id=181K9PQGnej0K5xNX9DRBDPAf3K9JosYk)开源数据集。
