@@ -12,11 +12,11 @@
 
 ## 目录说明
 
-- `doc`：毕业论文存档
-- `get_video`：用于读取并保存 8 路海康威视摄像头录像
-- `GUI`：软件界面
-- `visualization`：用于画图，算法效果的可视化结果
-- `log`：模型运行时的 tensorboard 日志
+- `doc`：毕业论文存档。
+- `get_video`：用于读取并保存 8 路海康威视摄像头录像。
+- `GUI`：软件界面。
+- `visualization`：用于画图，算法效果的可视化结果。
+- `log`：模型运行时的 tensorboard 日志。
 
 
 
