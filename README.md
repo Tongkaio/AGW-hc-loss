@@ -22,4 +22,6 @@
 - `b_pre_process_nwpu` 用于预处理数据集。
 
 >Baseline：[mangye16/Cross-Modal-Re-ID-baseline](https://github.com/mangye16/Cross-Modal-Re-ID-baseline)
+>
+>Hetero-center-loss：[98zyx/Hetero-center-loss-for-cross-modality-person-re-id](https://github.com/98zyx/Hetero-center-loss-for-cross-modality-person-re-id)
 
