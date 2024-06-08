@@ -32,3 +32,6 @@
 >
 >Hetero-center-loss：[98zyx/Hetero-center-loss-for-cross-modality-person-re-id](https://github.com/98zyx/Hetero-center-loss-for-cross-modality-person-re-id)
 
+## 权重下载
+
+链接：https://pan.baidu.com/s/1Ufd-dyu2NaB4u3E2i7jqYA ，提取码：dy0y
